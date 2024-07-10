@@ -1,3 +1,4 @@
 [submodule "tslib_package"]
 	path = tslib_package
 	url = https://github.com/earlytobed/Time-Series-Library.git
+	branch = tslib_package

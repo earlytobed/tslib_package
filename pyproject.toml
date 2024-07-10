@@ -2,12 +2,43 @@
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.ruff]
+indent-width = 4
+line-length = 200
+
+src = ["tests"]
+
+[tool.ruff.lint]
+select = [
+    # Pyflakes
+    "F",
+    # Pycodestyle
+    "E",
+    "W",
+    # isort
+    "I",
+]
+
+[tool.ruff.lint.isort]
+case-sensitive = true
+lines-after-imports = 2
+lines-between-types = 1
+no-sections = false
+
+[tool.ruff.format]
+indent-style = "space"
+line-ending = "lf"
+preview = false
+quote-style = "double"
+skip-magic-trailing-comma = false
+
 [tool.poetry]
 name = "tslib-package"
 version = "0.0.1"
 description = ""
 authors = ["Nighthawk <git@qaq.io>"]
 readme = "README.md"
+packages = [{ include = "tslib_package" }]
 
 [tool.poetry.dependencies]
 python = "^3.10, <3.13"
@@ -24,3 +55,7 @@ sktime = ">=0.16.1"
 sympy = ">=1.11.1"
 torch = ">=2.0.1"
 tqdm = ">=4.64.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.2.2"
+pre-commit = "^3.7.1"
